@@ -1,52 +1,36 @@
 {
-    "unidades": [
-        {
-            "id": "abc",
-            "apelido": "Unidade 1",
-            "local": "Rua 123",
-            "marca": "Marca 1",
-            "modelo": "Modelo 1",
-            "ativa": true
-          },
-          {
-            "id": "def",
-            "apelido": "Unidade 2",
-            "local": "Rua 2",
-            "marca": "Marca 2",
-            "modelo": "Modelo 2",
-            "ativa": false
-          },
-          {
-            "id": "ghi",
-            "apelido": "Unidade 3",
-            "local": "Rua 3",
-            "marca": "Marca 3",
-            "modelo": "Modelo 3",
-            "ativa": true
-          },
-          {
-            "id": "jkl",
-            "apelido": "Unidade 4",
-            "local": "Rua 4",
-            "marca": "Marca 4",
-            "modelo": "Modelo 4",
-            "ativa": false
-          },
-          {
-            "id": "mno",
-            "apelido": "Unidade 5",
-            "local": "Rua 5",
-            "marca": "Marca 5",
-            "modelo": "Modelo 5",
-            "ativa": true
-          },
-          {
-            "id": "pqr",
-            "apelido": "Unidade 6",
-            "local": "Rua 6",
-            "marca": "Marca 6",
-            "modelo": "Modelo 6",
-            "ativa": false
-          }
-    ]
-  }
+  "unidades": [
+    {
+      "id": "abc",
+      "apelido": "Unidade 1",
+      "local": "Rua 1",
+      "marca": "Marca 1",
+      "modelo": "Modelo 1",
+      "ativa": true
+    },
+    {
+      "id": "def",
+      "apelido": "Unidade 2",
+      "local": "Rua 2",
+      "marca": "Marca 2",
+      "modelo": "Modelo 2",
+      "ativa": false
+    },
+    {
+      "id": "ghi",
+      "apelido": "Unidade 3",
+      "local": "Rua 3",
+      "marca": "Marca 3",
+      "modelo": "Modelo 3",
+      "ativa": true
+    },
+    {
+      "id": "jkl",
+      "apelido": "Unidade 4",
+      "local": "Rua 4",
+      "marca": "Marca 4",
+      "modelo": "Modelo 4",
+      "ativa": false
+    }
+  ]
+}
