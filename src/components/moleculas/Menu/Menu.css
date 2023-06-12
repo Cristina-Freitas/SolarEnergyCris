@@ -1,0 +1,43 @@
+.Menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 46px;
+    gap: 20px;
+  }
+  
+  .Menu img {
+    cursor: pointer;
+  }
+  
+  .Menu button {
+    padding: 16px 24px;
+    font-size: 18px;
+    line-height: 27px;
+    color: #A098AE;
+    background: none;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    min-width: 250px;
+    display: flex;
+    align-items:left;
+    gap: 30px;
+  }
+  
+  .Menu button span {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .Menu button.selected {
+    background: #4cbc9a;
+    color: #ffffff;
+  }
+  
+  .Menu button.selected img {
+    filter: brightness(200%) contrast(500%);
+  }
+  
