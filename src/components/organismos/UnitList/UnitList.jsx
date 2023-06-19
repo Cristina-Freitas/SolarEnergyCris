@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { Button } from "../../index";
 import './UnitList.css'
 
-export default function UnitList({setOpenForm}){
+export default function UnitList({setOpenForm, setSelectedUnit}){
     const [unidades, setUnidades] = useState([]);
  
     const getData = () => {
@@ -11,7 +12,7 @@ export default function UnitList({setOpenForm}){
     }
 
     useEffect(() => {
-        getData();
+        getData("unidades", setUnidades);
       }, []);
 
       const handleDelete = (id) =>{
@@ -19,12 +20,16 @@ export default function UnitList({setOpenForm}){
         fetch(`http://localhost:3333/unidades/${id}`, {
             method: "DELETE",
           });
-          getData();
+          getData("unidades", setUnidades);
+      };
+
+      const handleEdit = (unidade) =>{
+        setSelectedUnit(unidade);
+        setOpenForm(true)
+        console.log(setSelectedUnit)
       };
 
     return(
-        
-        <div >
         <section className="unit-list">
           <h2>Lista de unidades</h2>
           <br />
@@ -50,23 +55,29 @@ export default function UnitList({setOpenForm}){
               <td>{unidade.marca}</td>
               <td>{unidade.modelo}</td>
               <td>
-                <button className='green'>
+                <Button onClick={() => handleEdit(unidade)
+                }classStyle='green'>
                   Editar
-                </button>
+                </Button>
               </td>
               <td>
-                <button onClick={() => handleDelete(unidade.id)
-                } className='danger'>
+                <Button onClick={() => handleDelete(unidade.id)
+                } classStyle='danger'>
                   Remover
-                </button>
+                </Button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <br/>
+      <br/>
+      <Button
+        id="new-unit"
+        classStyle='secondary' 
+        onClick={() => setOpenForm(true)}
+        >Nova Unidade
+        </Button>
       </section>
-      <button className='secondary' onClick={() => setOpenForm(true)}>Nova Unidade</button>
-       
-    </div>
     )
 }

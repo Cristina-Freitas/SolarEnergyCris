@@ -1,5 +1,5 @@
 import { Menu } from '../../index'
-import '../Container/Container.css'
+import './Container.css'
 
 export default function Container({ children, title }) {
   return (

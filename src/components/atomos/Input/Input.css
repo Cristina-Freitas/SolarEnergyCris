@@ -1,0 +1,43 @@
+.input-container {
+  position: relative;
+}
+
+.input-container img, .input-container svg {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  left: 28px;
+}
+
+.input {
+  box-sizing: border-box;
+
+  width: 518px;
+  height: 85.32px;
+
+  background: #fafafa;
+  border: 1px solid #000000;
+  border-radius: 10px;
+
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+
+  color: #a098ae;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.input-container input[type="checkbox"] {
+  width: 29px;
+  height: 28px;
+  margin:  10px 17px 20px 10px;
+}
+
+.input-with-icon {
+  padding-left: 80px;
+}

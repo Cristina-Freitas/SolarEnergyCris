@@ -20,15 +20,18 @@ export default function Menu(){
 
     return(
         <div className='Menu'>
-            <img src={logo} alt="Logo" onClick={() => navigate("/")}/>
+            <img src={logo} alt="logo" onClick={() => navigate("/")}/>
+            
             <button className={isSelected("/")} onClick={() => handleClick("/")}>
                 <img src={dashboard} alt="dashboard" width="32" height="32" viewBox="0 0 24 24" />
                     <span>Dashboard</span>
             </button>
+            
             <button className={isSelected("/unidades")} onClick={() => handleClick("/unidades")}>
                 <img src={unidadeConsumidora} alt="unidade consumidora" width="32" height="32" viewBox="0 0 24 24"/>
                     <span>Unidade consumidora</span>
             </button>
+            
             <button className={isSelected("/cadastro")} onClick={() => handleClick("/cadastro")}>       
                 <img src={cadastro} alt="cadastro de energia gerada" width="32" height="32" viewBox="0 0 24 24" />
                     <span>Cadastro de energia gerada</span>

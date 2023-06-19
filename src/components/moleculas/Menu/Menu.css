@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
+    background-color: rgb(202, 222, 216);
     padding: 20px 46px;
     gap: 20px;
   }
