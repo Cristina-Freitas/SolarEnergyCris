@@ -1,9 +1,14 @@
-import { Container } from "../../components";
+import { useState } from "react";
+import { Cards, Container, Chart } from "../../components";
 
-export default function Dashboard(){
-    return(
-        <Container title="Dashboard">
-        <h1>Dashboard</h1>
-        </Container>
-    )
+export default function Dashboard() {
+  const [filter, setFilter] = useState("all");
+
+  return (
+    <Container title="Dasboard">
+       <Cards setFilter={setFilter} />
+
+      <Chart filter={filter} />
+    </Container>
+  )
 }

@@ -1,0 +1,34 @@
+.GeneratedEnergyRegistration  input {
+    width: 250px;
+    height: 57px;
+  }
+  
+  .GeneratedEnergyRegistration label {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: #53575d;
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .GeneratedEnergyRegistration select {
+    box-sizing: border-box;
+    width: 255px;
+    height: 80px;
+    background: #fafafa;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #a098ae;
+    padding-left: 28px;
+    margin-bottom: 20px;
+  }
