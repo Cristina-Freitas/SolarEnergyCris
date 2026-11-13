@@ -135,7 +135,7 @@ describe("UnitList", () => {
       expect(mockSetSelectedUnit).toHaveBeenCalledWith(mockUnidades[0]);
 
       expect(fetch).toHaveBeenCalledTimes(1);
-      expect(fetch).toHaveBeenCalledWith("http://localhost:3333/unidades/1", {
+      expect(fetch).toHaveBeenCalledWith("/api/unidades/1", {
         method: "DELETE",
       });
     });

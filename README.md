@@ -4,6 +4,10 @@ Aplicação web para **gerenciamento de unidades geradoras de energia solar**: c
 
 Projeto desenvolvido no módulo M3S1 do **FuturoDEV [Ingleses] — SENAI-SC**.
 
+🔗 **Acesse online:** https://SEU-APP.onrender.com
+
+> Hospedado no plano gratuito da Render: se o site estiver sem acessos há algum tempo, o primeiro carregamento pode levar até 1 minuto. Os dados de demonstração voltam ao estado original sempre que o servidor reinicia, então fique à vontade para cadastrar, editar e remover.
+
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-4-646CFF?logo=vite&logoColor=white)
 ![Jest](https://img.shields.io/badge/Testes-Jest%20%2B%20Testing%20Library-C21325?logo=jest&logoColor=white)
@@ -49,7 +53,8 @@ Formulário para registrar quanto cada unidade gerou em determinado mês.
 | Interface | React 18, Vite, CSS |
 | Rotas | React Router DOM 6 |
 | Gráficos | Chart.js + react-chartjs-2 |
-| API simulada | JSON Server |
+| API simulada | JSON Server (usado como módulo Node, junto com o site) |
+| Deploy | Render |
 | Requisições | Fetch API |
 | Testes | Jest, Testing Library (React, User Event, Jest DOM), Babel |
 | Qualidade | ESLint |
@@ -72,6 +77,7 @@ src/
 └── assets/            # Logo e ícones
 backend/
 └── db.json            # Base de dados do JSON Server
+server.js              # Servidor único: API em /api + site compilado
 ```
 
 Essa organização facilita o reaproveitamento: o mesmo `Button` e o mesmo `Input` são usados em todos os formulários, e o `Container` garante o layout padrão de todas as páginas.
@@ -80,16 +86,16 @@ Essa organização facilita o reaproveitamento: o mesmo `Button` e o mesmo `Inpu
 
 ## 🔌 API
 
-A API é simulada com o **JSON Server** em `http://localhost:3333`, a partir do arquivo `backend/db.json`.
+A API é simulada com o **JSON Server**, a partir do arquivo `backend/db.json`. O arquivo `server.js` usa o JSON Server como módulo para entregar a API em `/api` e o site compilado no mesmo endereço. Assim, o projeto inteiro roda em um único serviço, sem configuração de CORS.
 
 | Método | Endpoint | Descrição |
 | --- | --- | --- |
-| GET | `/unidades` | Lista as unidades |
-| POST | `/unidades` | Cadastra uma unidade |
-| PUT | `/unidades/:id` | Atualiza uma unidade |
-| DELETE | `/unidades/:id` | Remove uma unidade |
-| GET | `/geracoes` | Lista os lançamentos de geração |
-| POST | `/geracoes` | Registra a geração mensal de uma unidade |
+| GET | `/api/unidades` | Lista as unidades |
+| POST | `/api/unidades` | Cadastra uma unidade |
+| PUT | `/api/unidades/:id` | Atualiza uma unidade |
+| DELETE | `/api/unidades/:id` | Remove uma unidade |
+| GET | `/api/geracoes` | Lista os lançamentos de geração |
+| POST | `/api/geracoes` | Registra a geração mensal de uma unidade |
 
 <details>
 <summary>Exemplo de dados</summary>
@@ -123,7 +129,7 @@ A API é simulada com o **JSON Server** em `http://localhost:3333`, a partir do 
 
 ## 🚀 Como rodar
 
-**Pré-requisito:** Node.js 18 ou superior.
+**Pré-requisito:** Node.js 22.
 
 ```bash
 # 1. Clone o repositório
@@ -137,7 +143,7 @@ npm install
 Em seguida, abra **dois terminais** na pasta do projeto:
 
 ```bash
-# Terminal 1 — API (http://localhost:3333)
+# Terminal 1 — API (http://localhost:3333/api)
 npm run server
 ```
 
@@ -146,7 +152,15 @@ npm run server
 npm run dev
 ```
 
-Acesse `http://localhost:5173` no navegador.
+Acesse `http://localhost:5173` no navegador. Em desenvolvimento, o Vite redireciona as chamadas de `/api` para o servidor local.
+
+Para testar a versão de produção, com tudo em um único endereço:
+
+```bash
+npm run build
+npm start
+# acesse http://localhost:3333
+```
 
 ### Testes
 
@@ -166,13 +180,13 @@ Os testes cobrem a renderização e a navegação do menu, a listagem de unidade
 - Transformar dados brutos em informação visual (agrupamento por mês e gráfico com Chart.js)
 - Escrever **testes de componentes** com Jest e Testing Library, praticando TDD
 - Estruturar rotas de uma SPA com React Router
+- Publicar frontend e API juntos em um único serviço na nuvem
 
 ---
 
 ## 🔭 Próximos passos
 
 - [ ] Tela de login com autenticação
-- [ ] Atualizar a lista automaticamente após cadastrar, editar ou remover uma unidade
 - [ ] Ordenar o gráfico por mês **e ano**, e não apenas pelo mês
 - [ ] Mensagens de sucesso e de erro nas requisições
 - [ ] Layout responsivo para telas menores

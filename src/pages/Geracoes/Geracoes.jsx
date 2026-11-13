@@ -2,12 +2,12 @@ import "./Geracoes.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Button, Input } from "../../components";
-import { getData } from "../../utils";
+import { API_URL, getData } from "../../utils";
 
 export default function Geracoes() {
   const navigate = useNavigate();
 
-  const emptyState = { unidade: undefined, data: undefined, total: undefined };
+  const emptyState = { unidade: "", data: "", total: "" };
   const [formValue, setFormValue] = useState(emptyState);
 
   const [units, setUnits] = useState([]);
@@ -24,7 +24,7 @@ export default function Geracoes() {
       total: Number(formValue.total),
     };
 
-    fetch("http://localhost:3333/geracoes", {
+    fetch(`${API_URL}/geracoes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(value),

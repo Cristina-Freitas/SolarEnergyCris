@@ -7,8 +7,8 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server --watch  backend/db.json --port 3333 --no-cors",
-    "start": "npm run server & npm run dev",
+    "server": "node server.js",
+    "start": "node server.js",
     "test": "jest"
   },
   "dependencies": {
@@ -40,5 +40,8 @@
     "jest-environment-jsdom": "^29.6.1",
     "prop-type": "^0.0.1",
     "vite": "^4.3.9"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

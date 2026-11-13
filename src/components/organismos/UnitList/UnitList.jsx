@@ -1,32 +1,31 @@
 import { useState, useEffect } from "react";
 import { Button } from "../../index";
+import { API_URL } from "../../../utils";
 import './UnitList.css'
 
 export default function UnitList({setOpenForm, setSelectedUnit}){
     const [unidades, setUnidades] = useState([]);
  
-    const getData = () => {
-        fetch("http://localhost:3333/unidades")
+    const loadUnits = () => {
+        fetch(`${API_URL}/unidades`)
         .then((response) => response.json())
         .then((data) => setUnidades(data));
     }
 
     useEffect(() => {
-        getData("unidades", setUnidades);
+        loadUnits();
       }, []);
 
       const handleDelete = (id) =>{
-        // console.log(id);
-        fetch(`http://localhost:3333/unidades/${id}`, {
+        // Só recarrega a lista depois que a remoção terminar
+        fetch(`${API_URL}/unidades/${id}`, {
             method: "DELETE",
-          });
-          getData("unidades", setUnidades);
+          }).then(() => loadUnits());
       };
 
       const handleEdit = (unidade) =>{
         setSelectedUnit(unidade);
         setOpenForm(true)
-        console.log(setSelectedUnit)
       };
 
     return(

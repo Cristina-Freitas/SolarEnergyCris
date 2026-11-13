@@ -49,7 +49,7 @@ describe("UnitList", () => {
     );
 
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith("http://localhost:3333/unidades");
+    expect(fetch).toHaveBeenCalledWith("/api/unidades");
 
     // Aguarda a resolução da chamada fetch para renderizar os dados
     return screen.findByText(/unidade 1/i).then(() => {

@@ -1,6 +1,7 @@
 import "./UnitRegister.css";
 import { useState } from "react";
 import { Button, Input } from "../../index";
+import { API_URL } from "../../../utils";
 
 export default function UnitRegister({
     setOpenForm, selectedUnit, setSelectedUnit
@@ -16,7 +17,7 @@ export default function UnitRegister({
   const [form, setForm] = useState(selectedUnit || emptyState);
 
   const createUnit = () => {
-    fetch("http://localhost:3333/unidades", {
+    return fetch(`${API_URL}/unidades`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +27,7 @@ export default function UnitRegister({
   };
 
   const editUnit = () => {
-    fetch(`http://localhost:3333/unidades/${selectedUnit.id}`, {
+    return fetch(`${API_URL}/unidades/${selectedUnit.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -38,10 +39,14 @@ export default function UnitRegister({
   const handleSave = (event) => {
     event.preventDefault();
 
-    selectedUnit ? editUnit() : createUnit();
+    const request = selectedUnit ? editUnit() : createUnit();
 
-    setSelectedUnit(emptyState);
-    setOpenForm(false);
+    // Só volta para a lista depois que a API confirmar,
+    // e limpa a seleção para o próximo cadastro não virar uma edição.
+    request.then(() => {
+      setSelectedUnit(undefined);
+      setOpenForm(false);
+    });
   };
 
   return (

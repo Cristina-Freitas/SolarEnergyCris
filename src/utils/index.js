@@ -1,5 +1,9 @@
+// Endereço base da API. O mesmo servidor entrega o site e a API,
+// então basta um caminho relativo (em desenvolvimento, o Vite faz o proxy).
+export const API_URL = "/api";
+
 export const getData = (path, setData) => {
-  fetch(`http://localhost:3333/${path}`)
+  fetch(`${API_URL}/${path}`)
     .then((res) => res.json())
     .then((dados) => setData(dados));
 };
