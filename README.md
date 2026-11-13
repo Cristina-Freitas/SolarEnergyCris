@@ -4,7 +4,7 @@ Aplicação web para **gerenciamento de unidades geradoras de energia solar**: c
 
 Projeto desenvolvido no módulo M3S1 do **FuturoDEV [Ingleses] — SENAI-SC**.
 
-🔗 **Acesse online:** https://SEU-APP.onrender.com
+🔗 **Acesse online:** https://solarenergycris.onrender.com/
 
 > Hospedado no plano gratuito da Render: se o site estiver sem acessos há algum tempo, o primeiro carregamento pode levar até 1 minuto. Os dados de demonstração voltam ao estado original sempre que o servidor reinicia, então fique à vontade para cadastrar, editar e remover.
 
