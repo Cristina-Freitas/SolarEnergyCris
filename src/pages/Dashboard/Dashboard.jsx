@@ -5,7 +5,7 @@ export default function Dashboard() {
   const [filter, setFilter] = useState("all");
 
   return (
-    <Container title="Dasboard">
+    <Container title="Dashboard">
        <Cards setFilter={setFilter} />
 
       <Chart filter={filter} />
